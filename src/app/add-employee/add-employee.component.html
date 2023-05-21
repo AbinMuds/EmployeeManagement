@@ -1,1 +1,43 @@
-<p>add-employee works!</p>
+<p class="header">Add Employee Page</p>
+<div class="container my-4">
+  <div class="my-4">
+    <button class="btn btn-primary" routerLink="/">Go Home</button>
+  </div>
+  <div class="my-4">
+    <form>
+      <div class="form-group my-4">
+        <label for="firstName">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="first-name"
+          placeholder="Enter first name"
+        />
+      </div>
+      <div class="form-group my-4">
+        <label for="lastName">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="last-name"
+          placeholder="Enter last name"
+        />
+      </div>
+      <div class="form-group my-4">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" class="form-control" id="dob" name="dob" required />
+      </div>
+      <div class="form-group my-4">
+        <label for="hireDate">Hire Date:</label>
+        <input
+          type="date"
+          class="form-control"
+          id="hireDate"
+          name="hireDate"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
