@@ -2,6 +2,13 @@
 <button routerLink="/addEmployee" class="mx-4 btn btn-success">
   Add More Employee
 </button>
+<button
+  (click)="removeAllEmployees()"
+  routerLink="/"
+  class="mx-4 btn btn-danger"
+>
+  Remove All Employees
+</button>
 <!-- table -->
 <h3 class="my-3 mx-2">Employee List:</h3>
 <div class="my-2 mx-2">
@@ -15,20 +22,13 @@
         <th scope="col">HireDate</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody *ngFor="let data of employees; let i = index">
       <tr>
-        <th scope="row">1</th>
-        <td>James</td>
-        <td>Parker</td>
-        <td>05-26-1994</td>
-        <td>05-06-2023</td>
-      </tr>
-      <tr>
-        <th scope="row">1</th>
-        <td>John</td>
-        <td>Halms</td>
-        <td>03-15-1996</td>
-        <td>01-06-2022</td>
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ data.firstName }}</td>
+        <td>{{ data.lastName }}</td>
+        <td>{{ data.dob }}</td>
+        <td>{{ data.hireDate }}</td>
       </tr>
     </tbody>
   </table>

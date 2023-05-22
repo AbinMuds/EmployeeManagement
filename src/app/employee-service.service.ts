@@ -22,4 +22,8 @@ export class EmployeeServiceService {
     console.log(data);
     return this.http.post(baseUrl, data);
   }
+
+  deleteAll(): Observable<any> {
+    return this.http.delete<any>(baseUrl);
+  }
 }
