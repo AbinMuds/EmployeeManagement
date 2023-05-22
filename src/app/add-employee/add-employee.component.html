@@ -3,33 +3,45 @@
   <div class="my-4">
     <button class="btn btn-primary" routerLink="/">Go Home</button>
   </div>
-  <div class="my-4">
+  <div class="my-4" *ngIf="!submitted">
     <form>
       <div class="form-group my-4">
         <label for="firstName">First Name</label>
         <input
+          [(ngModel)]="employee.firstName"
           type="text"
           class="form-control"
           id="first-name"
           placeholder="Enter first name"
+          name="firstName"
         />
       </div>
       <div class="form-group my-4">
         <label for="lastName">Last Name</label>
         <input
+          [(ngModel)]="employee.lastName"
           type="text"
           class="form-control"
           id="last-name"
           placeholder="Enter last name"
+          name="lastName"
         />
       </div>
       <div class="form-group my-4">
         <label for="dob">Date of Birth:</label>
-        <input type="date" class="form-control" id="dob" name="dob" required />
+        <input
+          [(ngModel)]="employee.dob"
+          type="date"
+          class="form-control"
+          id="dob"
+          name="dob"
+          required
+        />
       </div>
       <div class="form-group my-4">
         <label for="hireDate">Hire Date:</label>
         <input
+          [(ngModel)]="employee.hireDate"
           type="date"
           class="form-control"
           id="hireDate"
@@ -37,7 +49,15 @@
           required
         />
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary" (click)="saveEmployee()">
+        Submit
+      </button>
     </form>
+  </div>
+  <div *ngIf="submitted">
+    <h3>Employee Successfully Added</h3>
+    <button class="btn btn-success" (click)="clearInputData()">
+      Add Another
+    </button>
   </div>
 </div>
