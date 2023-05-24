@@ -20,6 +20,7 @@
         <th scope="col">LastName</th>
         <th scope="col">DOB</th>
         <th scope="col">HireDate</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody *ngFor="let data of employees; let i = index">
@@ -29,6 +30,14 @@
         <td>{{ data.lastName }}</td>
         <td>{{ data.dob }}</td>
         <td>{{ data.hireDate }}</td>
+        <td>
+          <a class="mx-1" routerLink="edit/{{ data.id }}"
+            ><i style="color: rgb(15, 150, 233)" class="bi bi-pencil-square"></i
+          ></a>
+          <a class="mx-1" (click)="deleteEmployeeById(data.id)"
+            ><i style="color: rgb(248, 54, 54)" class="bi bi-trash"></i
+          ></a>
+        </td>
       </tr>
     </tbody>
   </table>

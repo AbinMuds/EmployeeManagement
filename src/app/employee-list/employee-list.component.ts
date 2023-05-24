@@ -25,7 +25,6 @@ export class EmployeeListComponent implements OnInit {
     this.employeeService.getAll().subscribe({
       next: (data) => {
         this.employees = data;
-        console.log(data);
       },
       error: (e) => console.log(e),
     });
@@ -35,7 +34,6 @@ export class EmployeeListComponent implements OnInit {
     this.employeeService.get(id).subscribe({
       next: (data) => {
         this.currentEmployee = data;
-        console.log(data);
       },
       error: (e) => console.log(e),
     });
@@ -43,6 +41,15 @@ export class EmployeeListComponent implements OnInit {
 
   removeAllEmployees(): void {
     this.employeeService.deleteAll().subscribe({
+      next: (data) => {
+        this.getAllEmployee();
+      },
+      error: (e) => console.log(e),
+    });
+  }
+
+  deleteEmployeeById(id: any): void {
+    this.employeeService.delete(id).subscribe({
       next: (data) => {
         this.getAllEmployee();
       },

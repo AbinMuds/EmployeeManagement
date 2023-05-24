@@ -26,7 +26,6 @@ export class AddEmployeeComponent {
 
     this.employeeService.storeData(data).subscribe({
       next: (data) => {
-        console.log(data);
         this.submitted = true;
       },
       error: (e) => console.log(e),

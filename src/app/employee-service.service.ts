@@ -19,11 +19,18 @@ export class EmployeeServiceService {
   }
 
   storeData(data: any): Observable<any> {
-    console.log(data);
     return this.http.post(baseUrl, data);
   }
 
   deleteAll(): Observable<any> {
     return this.http.delete<any>(baseUrl);
+  }
+
+  update(id: any, data: any): Observable<any> {
+    return this.http.put<any>(`${baseUrl}/${id}`, data);
+  }
+
+  delete(id: any): Observable<any> {
+    return this.http.delete<any>(`${baseUrl}/${id}`);
   }
 }

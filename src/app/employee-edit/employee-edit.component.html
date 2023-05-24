@@ -1,0 +1,58 @@
+<p class="header">Edit Employee Page</p>
+<div class="container my-4">
+  <div class="my-4" *ngIf="currentEmployee.id">
+    <h4>Edit Tutorial</h4>
+    <form>
+      <div class="form-group my-4">
+        <label for="firstName">First Name</label>
+        <input
+          [(ngModel)]="currentEmployee.firstName"
+          type="text"
+          class="form-control"
+          id="first-name"
+          placeholder="Enter first name"
+          name="firstName"
+        />
+      </div>
+      <div class="form-group my-4">
+        <label for="lastName">Last Name</label>
+        <input
+          [(ngModel)]="currentEmployee.lastName"
+          type="text"
+          class="form-control"
+          id="last-name"
+          placeholder="Enter last name"
+          name="lastName"
+        />
+      </div>
+      <div class="form-group my-4">
+        <label for="dob">Date of Birth:</label>
+        <input
+          [(ngModel)]="currentEmployee.dob"
+          type="date"
+          class="form-control"
+          id="dob"
+          name="dob"
+          required
+        />
+      </div>
+      <div class="form-group my-4">
+        <label for="hireDate">Hire Date:</label>
+        <input
+          [(ngModel)]="currentEmployee.hireDate"
+          type="date"
+          class="form-control"
+          id="hireDate"
+          name="hireDate"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="updateEmployee()">
+        Update
+      </button>
+    </form>
+  </div>
+  <div *ngIf="!currentEmployee.id">
+    <p>Unable to access the Employee</p>
+  </div>
+</div>
