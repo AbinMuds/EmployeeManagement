@@ -17,6 +17,9 @@ export class AddEmployeeComponent {
 
   constructor(private employeeService: EmployeeServiceService) {}
   saveEmployee(): void {
+    if (!this.isFormValid()) {
+      return;
+    }
     const data = {
       firstName: this.employee.firstName,
       lastName: this.employee.lastName,
@@ -30,6 +33,18 @@ export class AddEmployeeComponent {
       },
       error: (e) => console.log(e),
     });
+  }
+
+  isFormValid(): boolean {
+    return (
+      this.employee &&
+      this.employee.firstName !== undefined &&
+      this.employee.firstName.trim() !== '' &&
+      this.employee.lastName !== undefined &&
+      this.employee.lastName.trim() !== '' &&
+      this.employee.dob !== undefined &&
+      this.employee.hireDate !== undefined
+    );
   }
 
   clearInputData() {

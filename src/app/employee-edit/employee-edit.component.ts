@@ -9,7 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./employee-edit.component.css'],
 })
 export class EmployeeEditComponent implements OnInit {
-  @Input() currentEmployee: Employee = {
+  currentEmployee: Employee = {
     firstName: '',
     lastName: '',
     dob: new Date(),
@@ -41,12 +41,6 @@ export class EmployeeEditComponent implements OnInit {
   }
 
   updateEmployee(): void {
-    const data = {
-      firstName: this.currentEmployee.firstName,
-      lastName: this.currentEmployee.lastName,
-      dob: this.currentEmployee.dob,
-      hireDate: this.currentEmployee.hireDate,
-    };
     this.message = '';
     this.employeeService
       .update(this.currentEmployee.id, this.currentEmployee)
