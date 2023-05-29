@@ -10,6 +10,10 @@ const baseUrl = 'http://localhost:8000/api/v1/employee';
 export class EmployeeServiceService {
   constructor(private http: HttpClient) {}
 
+  getAllByName(name: string): Observable<Employee[]> {
+    return this.http.get<Employee[]>(`${baseUrl}/showByName/${name}`);
+  }
+
   getAll(): Observable<Employee[]> {
     return this.http.get<Employee[]>(baseUrl);
   }

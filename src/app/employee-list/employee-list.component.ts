@@ -21,6 +21,21 @@ export class EmployeeListComponent implements OnInit {
 
   constructor(private employeeService: EmployeeServiceService) {}
 
+  getAllByName(): void {
+    const name =
+      this.currentEmployee.lastName || this.currentEmployee.firstName;
+    if (name) {
+      this.employeeService.getAllByName(name).subscribe({
+        next: (data) => {
+          this.employees = data;
+        },
+        error: (e) => console.log(e),
+      });
+    } else {
+      this.getAllEmployee();
+    }
+  }
+
   getAllEmployee(): void {
     this.employeeService.getAll().subscribe({
       next: (data) => {

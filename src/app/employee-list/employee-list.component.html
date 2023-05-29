@@ -11,6 +11,15 @@
 </button>
 <!-- table -->
 <h3 class="my-3 mx-2">Employee List:</h3>
+<input
+  class="my-3 mx-2"
+  type="text"
+  name="search"
+  [(ngModel)]="currentEmployee.lastName"
+  placeholder="search for employees"
+  (input)="getAllByName()"
+/>
+<!-- <button class="btn btn-primary" (click)="getAllByLastName()">Search</button> -->
 <div class="my-2 mx-2">
   <table class="table">
     <thead>
